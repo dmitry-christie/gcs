@@ -54,9 +54,7 @@ if($enable_our_commitment): ?>
 
 
 <footer id="colophon" class="site-footer">
-	<div class="footer-logo-outer">
 	
-	</div>
 
 	<div class="footer-widgets-outer">
 		<div class="footer-widgets container">
