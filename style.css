@@ -1167,7 +1167,7 @@ object {
 
 div[class^="_form"] a {
 	margin-left: 10px;
-	color: #00b4c5;
+	color: #00b4c5 !important;
 	font-size: .6304347826rem;
 	margin-bottom: 10px;
 }
