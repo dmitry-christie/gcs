@@ -293,11 +293,16 @@ localStorage.setItem('cookieconsent', true);
 
 }
 
-
-
-
-
 </script>
+
+<!-- webinar -->
+<script>
+var fullname = document.getElementsByName("fullname")[0].value; 
+var fullname = fullname.replace("+", " ");
+document.getElementsByName("fullname")[0].value = fullname;
+</script>
+
+<!-- end webinar -->
 
 
 <script>
