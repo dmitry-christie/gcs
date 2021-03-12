@@ -295,11 +295,9 @@ localStorage.setItem('cookieconsent', true);
 
 </script>
 
-<!-- webinar -->
+<!-- webinar - replacing the pluses with spaces in the form value -->
 <script>
-var fullname = document.getElementsByName("fullname")[0].value; 
-var fullname = fullname.replace("+", " ");
-document.getElementsByName("fullname")[0].value = fullname;
+document.getElementsByName("fullname")[0].value = document.getElementsByName("fullname")[0].value.replace("+", " ");
 </script>
 
 <!-- end webinar -->
