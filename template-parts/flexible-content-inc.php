@@ -10,7 +10,12 @@ $k = 0;
     <?php if( have_rows('flexible-content-pages') ): ?>
         <?php while( have_rows('flexible-content-pages') ): the_row(); ?>
 
-            <div class="container entry-content container row-<?php echo $k ?>">
+	<?php
+            $hide_on_desktop = get_sub_field('hide_on_desktop');
+            $hide_on_mobile = get_sub_field('hide_on_mobile');
+            ?>
+
+            <div class="container entry-content container row-<?php echo $k ?> <?php if($hide_on_desktop):?>hide_on_desktop<?php endif;?> <?php if($hide_on_mobile):?>hide_on_mobile<?php endif;?>">
 
                 <?php if( get_row_layout() == 'text-visual_editor' ):                                       
                     $header = get_sub_field('header');
