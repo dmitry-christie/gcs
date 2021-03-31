@@ -3449,3 +3449,9 @@ blockquote {
 ._form_117 ._html-code p {
   color: white !important;
 }
+
+
+.cta-block-style-6, .cta-block-style-7 {
+    border-radius: 20px;
+    border: 1px solid #007ac1;
+}
