@@ -1929,6 +1929,12 @@ padding: 120px 0px;
 }
 
 
+@media (max-width: 350px) {
+	.as-seen .source {
+	width: 100%;	
+	}
+}
+
 
 .footer-logo-outer {
 	background-color: #1955a6;
