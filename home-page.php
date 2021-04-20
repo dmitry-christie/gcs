@@ -1116,9 +1116,9 @@ if($featured_img_url) {
         <div class="as-seen-outer" data-aos="fade-up">
             <div class="as-seen container">
                 
-                     <?php if( have_rows('featured_on') ): ?>
+                     <?php if( have_rows('featured_on', 'option') ): ?>
                                     
-                                        <?php while ( have_rows('featured_on') ) : the_row(); ?>
+                                        <?php while ( have_rows('featured_on', 'option') ) : the_row(); ?>
                                              <div class="source">
                                                  <img src="<?php $icon = get_sub_field('logo'); echo $icon; ?>">
 
