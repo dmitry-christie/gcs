@@ -1115,22 +1115,21 @@ if($featured_img_url) {
        </h2>
         <div class="as-seen-outer" data-aos="fade-up">
             <div class="as-seen container">
-                <div class="source">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/exame.png">
+                
+                     <?php if( have_rows('featured_on', 'options') ): ?>
+                                    
+                                        <?php while ( have_rows('featured_on', 'options') ) : the_row(); ?>
+                                             <div class="source">
+                                                 <img src="<?php $icon = get_sub_field('logo'); echo $icon; ?>">
 
-                </div>
-                <div class="source">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/veja.png">
+                                            </div>
+                                           
 
-                </div>
-                <div class="source">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/info-money.png">
 
-                </div>
-                <div class="source">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/forbes.png">
-
-                </div>
+                                            <?php endwhile; ?>
+                                   
+                                <?php endif; ?>
+             
             </div>
         </div>
 
