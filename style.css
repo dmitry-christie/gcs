@@ -1922,6 +1922,12 @@ padding: 120px 0px;
   text-align: center;
 }
 
+@media (max-width: 700px) {
+	.as-seen .source {
+	width: 50%;	
+	}
+}
+
 
 
 .footer-logo-outer {
