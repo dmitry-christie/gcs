@@ -1914,7 +1914,14 @@ padding: 120px 0px;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 6em;
+	flex-wrap: wrap;
 }
+
+.as-seen .source {
+	width: 25%;
+  text-align: center;
+}
+
 
 
 .footer-logo-outer {
