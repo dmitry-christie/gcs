@@ -1120,7 +1120,7 @@ if($featured_img_url) {
                                     
                                         <?php while ( have_rows('featured_on', 'option') ) : the_row(); ?>
                                              <div class="source">
-                                                 <img src="<?php $icon = get_sub_field('logo'); echo $icon; ?>">
+                                                 <img src="<?php $icon = get_sub_field('logo'); echo $logo; ?>">
 
                                             </div>
                                            
