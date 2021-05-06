@@ -1848,9 +1848,209 @@ $k = 0;
                 <!-- END Timeline vertical-->
 
 
+            <?php elseif(get_row_layout() == 'all_categories_block_with_search'):?>
+                <style>
+                    .all_categories_block_header {
+                        justify-content: space-between;
+                    }
+
+                    .loop-categories div {
+    display: none;   
+}
+
+.the-loop .post {
+    display: block;
+   width: 30%;
+}
+
+.the-loop .post * {
+    display: block;
+}
+
+.inner-loop {
+    display: flex !important;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.inner-loop .button {
+    display: inline-block;
+}
 
 
+.all_categories_block select {
+ border: 0px;
+ color: #007ac1 !important;
+}
 
+.the-loop, .alm-reveal {
+    margin-top: 1em;
+}
+
+@media(max-width: 800px) {
+    .the-loop .post {
+        width: 100%;
+    }
+
+    .all_categories_block_header   {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all_categories_block_header div {
+        margin-bottom: 1em;
+    }
+}
+                </style>
+                <div class="all_categories_block">
+                    <div class="all_categories_block_header flex">
+                    <div class="selector">
+                        <select name="options" id="options">
+
+                        <?php 
+
+                        $args = array(
+                            'orderby' => 'name',
+                            'order' => 'ASC',
+                            'parent' => 0
+                        );
+                        $categories = get_categories($args);
+
+                     
+                        $i = 0;
+                        foreach($categories as $category) {
+                            $i++;
+                            echo '<option value="' . $i . '">' . $category->cat_name;
+                            if($i === 1) { echo ' ⌄';}
+                            echo '</option>';
+                        }
+
+                        
+                        ?>
+                            
+                           
+                        </select>
+                    </div>
+                    <div class="search">
+                        <form role="search" method="get" id="searchform"
+                        class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                        <div>
+                            <label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
+                            <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" />
+                            <input type="submit" id="searchsubmit"
+                                value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>" />
+                        </div>
+                        </form>
+                    </div>
+                    </div>
+
+                    
+                </div>
+
+                <hr>
+                <div class="loop-categories">
+
+                <?php 
+
+                $i = 0;
+
+                     foreach($categories as $category) {
+                        $i++;
+                        echo '<div id="' . $i. '"';
+                        if($i === 1) {
+                            echo ' style="display: block"';
+                        }?>
+
+<div class="the-loop">
+
+
+<h2 class="section-header sm-red-line"><?php echo $category->cat_name;?> </h2>
+<div class="inner-loop">
+
+<?php
+
+
+   
+
+
+    $args = array(
+        'post_type' => 'post',
+    );
+    $posts_category = $category->cat_ID;
+    $args['cat'] = $posts_category;
+    $args['posts_per_page'] =  6;
+    
+
+    $post_query = new WP_Query($args);
+
+    if($post_query->have_posts() ) {
+        while($post_query->have_posts() ) {
+            $post_query->the_post();
+            ?>
+            <div class="post">
+                <a href="<?php the_permalink(); ?>">
+                <div class="thumbnail-container" style="background-image: url('<?php the_post_thumbnail_url('large'); ?>'); height: 220px;">
+                </div>
+                <div class="text">
+
+
+                    <h5><?php the_title(); ?></h5>
+                    <?php the_excerpt(); ?> 
+                    <div class="button"> <?php 
+        $read_more_global_button_text = get_field('read_more_global_button_text', 'option'); 
+        if ($read_more_global_button_text) {
+            echo $read_more_global_button_text; 
+        } else { 
+            echo 'Read more '; 
+        } 
+    ?> <!-- <img src="<?php echo get_template_directory_uri(); ?>/img/arrow-button.png" alt="arrow icon"> --></div>
+
+                    </div>
+                </a>
+            </div>
+            <?php
+            }
+        }
+        wp_reset_query();
+?>
+</div>
+</div>
+
+                        <?php
+                        
+                     }
+                        
+                        ?>
+
+                        
+                        </div>
+                        
+                        
+                       
+
+                     
+                        
+                    
+                    
+                </div>
+
+      
+
+          
+
+
+                <script>
+                document.getElementById('options').onchange = function() {
+                    var i = 1;
+                    var myDiv = document.getElementById(i);
+                    while(myDiv) {
+                        myDiv.style.display = 'none';
+                        myDiv = document.getElementById(++i);
+                    }
+                    document.getElementById(this.value).style.display = 'block';
+                };
+                </script>
 
 
 
