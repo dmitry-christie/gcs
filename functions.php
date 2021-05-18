@@ -289,7 +289,7 @@ include('custom-shortcodes.php');
 
 
 function show_post($id) {
-  $post = get_page($id);
+  $post = get_post($id);
   $content = apply_filters('the_content', $post->post_content);
   echo $content;
 }
