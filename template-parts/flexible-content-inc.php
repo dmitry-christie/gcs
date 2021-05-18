@@ -1263,7 +1263,14 @@ $k = 0;
             <!-- END Blog posts loop -->
 
 
-
+	 <?php elseif( get_row_layout() == 'global_block_collection' ): ?>
+		    <?php if(get_sub_field('id')) { 
+		    
+		    the_sub_field('id');
+			    
+		}?>
+		    
+		    
 
 
 
