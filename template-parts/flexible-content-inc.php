@@ -1265,8 +1265,9 @@ $k = 0;
 
 	 <?php elseif( get_row_layout() == 'global_block_collection' ): ?>
 		    <?php if(get_sub_field('id')) { 
-		    
-		    the_sub_field('id');
+		    $block_id = get_sub_field('id');
+		    show_post($block_id);
+	
 			    
 		}?>
 		    
